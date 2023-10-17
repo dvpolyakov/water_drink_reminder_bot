@@ -1,6 +1,6 @@
 import logging
-from aiogram import Bot, Dispatcher, types
-from aiogram.types import ParseMode
+from aiogram import Bot, Dispatcher, ParseMode
+# from aiogram.types import ParseMode
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from datetime import datetime
 
@@ -23,7 +23,7 @@ async def send_drink_water_reminder():
 
 async def on_startup(dp):
     scheduler = AsyncIOScheduler()
-    scheduler.add_job(send_drink_water_reminder, "interval", hours=1)
+    scheduler.add_job(send_drink_water_reminder, "interval", minutes=10)
     scheduler.start()
 
 
