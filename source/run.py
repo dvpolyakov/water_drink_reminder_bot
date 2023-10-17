@@ -13,16 +13,17 @@ dp = Dispatcher(bot)
 
 
 async def send_drink_water_reminder():
-    current_hour = datetime.now().hour
-    # if 10 <= current_hour < 18:
-    await bot.send_message(
-        USER_ID, "Time to drink a glass of water!", parse_mode="Markdown"
-    )
+    current_time_utc_plus_3 = datetime.now(UTC_PLUS_3)
+    current_hour = current_time_utc_plus_3.hour
+
+    if 10 <= current_hour < 18:
+        await bot.send_message(USER_ID, "Time to drink a glass of water!")
+
 
 
 async def on_startup(dp):
     scheduler = AsyncIOScheduler()
-    scheduler.add_job(send_drink_water_reminder, "interval", minutes=10)
+    scheduler.add_job(send_drink_water_reminder, "interval", hours=1)
     scheduler.start()
 
 
