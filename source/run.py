@@ -1,6 +1,5 @@
 import logging
-from aiogram import Bot, Dispatcher, ParseMode
-# from aiogram.types import ParseMode
+from aiogram import Bot, Dispatcher
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from datetime import datetime
 
@@ -17,7 +16,7 @@ async def send_drink_water_reminder():
     current_hour = datetime.now().hour
     if 10 <= current_hour < 18:
         await bot.send_message(
-            USER_ID, "Time to drink a glass of water!", parse_mode=ParseMode.MARKDOWN
+            USER_ID, "Time to drink a glass of water!", parse_mode="Markdown"
         )
 
 
