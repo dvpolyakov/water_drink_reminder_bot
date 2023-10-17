@@ -2,8 +2,8 @@ import logging
 from aiogram import Bot, Dispatcher
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from datetime import datetime
+from bot_token import API_TOKEN
 
-API_TOKEN = "6651361716:AAHNQThVpwYIr_4hlN8Ejo_9ea3TXePaQQg"
 USER_ID = "219196569"
 
 logging.basicConfig(level=logging.INFO)
