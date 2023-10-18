@@ -1,7 +1,7 @@
 import logging
 from aiogram import Bot, Dispatcher
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from source.bot_token import API_TOKEN
 
 USER_ID = "219196569"
@@ -10,6 +10,8 @@ logging.basicConfig(level=logging.INFO)
 
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
+
+UTC_PLUS_3 = timezone(timedelta(hours=3))
 
 
 async def send_drink_water_reminder():
